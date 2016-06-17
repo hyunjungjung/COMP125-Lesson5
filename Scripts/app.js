@@ -3,34 +3,46 @@
 
 
 //IIFE - Immediately Invoked Functiona Expression
-(function(){
+(function () {
     "use strict";
+    var pageBody = document.getElementsByTagName("body")[0];
+    console.log(pageBody);
+    pageBody.addEventListener("load", function(){
+        console.log("Body loaded");
+    });
     
-    var paragraphOne=document.getElementById("paragraphOne");
-    var paragraphTwo=document.getElementById("paragraphTwo");
-    var paragraphThree=document.getElementById("paragraphThree");
-    
-    // define your paragraphs array(most common way)
-    var paragraphs = [];
-    
-    // data for my pages   
-    paragraphs[0] = "Welcome to this black-and-white boring webpage which will be changed into an awesome one later!";
-    paragraphs[1] = "Three projects of mine will be added even though they are not good/pretty.";
-    paragraphs[2] = "Do you want to know about me? Wait for a little bit..";
-    
-    // second way to define an array
-    //var paragraphs = new Array();
-    
-    // check to see if paragraph one exists
-    if(paragraphOne){
-        paragraphOne.textContent=paragraphs[0];
+    function PageSwitcher() {
+        switch (document.title) {
+            case "Home":
+                Home();
+                console.log("Home");
+                break;
+            case "About Me":
+                About();
+                break;
+            case "Contact Me":
+                Contact();
+                break;
+            case "Projects":
+                Projects();
+                break;
+        }
+
     }
-    if(paragraphTwo){
-        paragraphTwo.textContent=paragraphs[1];
+
+    function Home() {
+        console.log("You are at the Home");
     }
-    if(paragraphThree){
-        paragraphThree.textContent=paragraphs[2];
+    function About() {
+        console.log("You are at the About");
     }
-    
-    
+    function Contact() {
+        console.log("You are at the Contact");
+    }
+    function Projects() {
+        console.log("You are at the Projects");
+    }
+
+    //document.body.addEventListener("load", PageSwitcher);
+
 })();
