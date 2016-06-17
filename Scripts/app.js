@@ -5,11 +5,12 @@
 //IIFE - Immediately Invoked Functiona Expression
 (function () {
     "use strict";
+
     var pageBody = document.getElementsByTagName("body")[0];
     console.log(pageBody);
     pageBody.addEventListener("load", function(){
         console.log("Body loaded");
-    });
+   });
     
     function PageSwitcher() {
         switch (document.title) {
@@ -28,7 +29,8 @@
                 break;
         }
 
-    }
+    }console.log(document.URL);
+    
 
     function Home() {
         console.log("You are at the Home");
@@ -43,6 +45,6 @@
         console.log("You are at the Projects");
     }
 
-    //document.body.addEventListener("load", PageSwitcher);
+    document.body.addEventListener("load", PageSwitcher);
 
 })();
